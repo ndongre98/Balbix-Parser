@@ -1,5 +1,9 @@
 # Balbix Coding Challenge
 
+## Instructions
+
+Run `python3 parser.py` and input a URL.
+If an error is logged in the console, check the log file for more information.
 
 ## Context
 
@@ -13,3 +17,15 @@
 Given a vendor webpage with vulnerability details, write a program to parse the website and extract all key vulnerability metrics. The program output should be formatted into JSON
 
 
+## Assumptions
+
+- Parser only needs to support the two sample websites provided in assignment writeup
+- Every HTML webpage contains metadata with a description
+- Every HTML webpage contains four tables: information table, affected product versions, solution, and vulnerability details
+- Tables share the same column names with the exception of:
+	- The Vulnerability Details table potentially including a column for Affected Versions
+- The CVE number column in the Vulnerability Details table always contains the string "CVE"
+- Affected Versions in the Vulnerability Details take precedence over Version in the Affected Product Versions table
+- Requesting/Receiving HTML data requires 1 second
+- The "product" attribute in the JSON output wants the specific product name not the product family name (i.e. "magento_commerce" as opposed to "magento") -- I emailed asking about this.
+- The "name" attribute for the second example, CVE-2019-16468, was supposed to be "Adobe Experience Manager"
